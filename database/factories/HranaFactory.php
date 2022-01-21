@@ -18,7 +18,7 @@ class HranaFactory extends Factory
             'naziv' => "Hrana ".random_int(1,100),
             'opis' => $this->faker->sentence(),
             'cena' => $this->faker->randomFloat(2,10,1000),
-            'restoran_id' =>Restoran::factory()
+            'restoran' =>Restoran::factory()
         ];
     }
 }

@@ -29,7 +29,7 @@ Route::group(['middleware'=>['auth:sanctum']],function(){
     Route::resource('hrana',HranaController::class)->only(['update','store','destroy']);
     Route::resource('porudzbina',PorudzbinaController::class)->only(['update','store','destroy']);
 
-
+Route::post('logout',[AuthController::class,'logout']);
 
 
 

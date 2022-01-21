@@ -44,7 +44,7 @@ class HranaController extends Controller
             'naziv'=>'required|string|max:255',
             'opis'=>'required|string|max:255',
             'cena'=>'required|float',
-            'restoran_id'=>['required','integer',new PostojiRestoran()]
+            'restoran'=>['required','integer',new PostojiRestoran()]
         ]);
 
         if($validator->fails()){
@@ -54,7 +54,7 @@ class HranaController extends Controller
             'naziv'=>$request->naziv,
             'opis'=>$request->opis,
             'cena'=>$request->cena,
-            'restoran_id'=>$request->restoran_id,
+            'restoran'=>$request->restoran,
         ]);
 
         return response()->json(['Uspesno sacuvana hrana',new HranaResource($hrana)]);
@@ -95,7 +95,7 @@ class HranaController extends Controller
             'naziv'=>'required|string|max:255',
             'opis'=>'required|string|max:255',
             'cena'=>'required|float',
-            'restoran_id'=>['required','integer',new PostojiRestoran()]
+            'restoran'=>['required','integer',new PostojiRestoran()]
         ]);
 
         if($validator->fails()){

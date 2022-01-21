@@ -12,7 +12,7 @@ class RestoranResource extends JsonResource
      * @param  \Illuminate\Http\Request  $request
      * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
      */
-    public static $wrap='Restoran';
+    public static $wrap='restoran';
     public function toArray($request)
     {
         return [

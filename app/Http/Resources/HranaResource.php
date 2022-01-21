@@ -19,7 +19,7 @@ class HranaResource extends JsonResource
             'id'=>$this->resource->id,
             'naziv'=>$this->resource->naziv,
             'opis'=>$this->resource->opis,
-            'restoran_id'=>new RestoranResource($this->resource->brojTelefona),
+            'restoran'=>new RestoranResource($this->resource->restoran),
             'cena'=>$this->resource->cena,
         ];
     }

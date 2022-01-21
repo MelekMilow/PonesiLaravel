@@ -42,8 +42,8 @@ class PorudzbinaController extends Controller
     public function store(Request $request)
     {
         $validator=Validator::make($request->all(),[
-            'hrana_id'=>['required','integer',new PostojiHrana()],
-            'user_id'=>['required','integer',new PostojiUser()],
+            'hrana'=>['required','integer',new PostojiHrana()],
+            'user'=>['required','integer',new PostojiUser()],
             'opis'=>'required|string|max:255',
             'cena'=>'required|float',
 
@@ -53,8 +53,8 @@ class PorudzbinaController extends Controller
         }
 
         $porudzbina = Porudzbina::create([
-            'hrana_id'=>$request->hrana_id,
-            'user_id'=>$request->user_id,
+            'hrana'=>$request->hrana,
+            'user'=>$request->user,
             'opis'=>$request->opis,
             'cena'=>$request->cena,
         ]);
@@ -94,8 +94,8 @@ class PorudzbinaController extends Controller
     {
 
         $validator=Validator::make($request->all(),[
-            'hrana_id'=>['required','integer',new PostojiHrana()],
-            'user_id'=>['required','integer',new PostojiUser()],
+            'hrana'=>['required','integer',new PostojiHrana()],
+            'user'=>['required','integer',new PostojiUser()],
             'opis'=>'required|string|max:255',
             'cena'=>'required|float',
 
@@ -104,10 +104,10 @@ class PorudzbinaController extends Controller
             return response()->json($validator->errors());
         }
 
-        $porudzbina->naziv = $request->naziv;
-        $porudzbina->adresa = $request->adresa;
-        $porudzbina->brojTelefona = $request->brojTelefona;
-        $porudzbina->radnoVreme = $request->radnoVreme;
+        $porudzbina->hrana = $request->hrana;
+        $porudzbina->user = $request->user;
+        $porudzbina->opis = $request->opis;
+        $porudzbina->cena = $request->cena;
 
         $porudzbina->save();
 

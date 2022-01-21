@@ -15,8 +15,8 @@ class CreatePorudzbinasTable extends Migration
     {
         Schema::create('porudzbinas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('hrana_id');
-            $table->foreignId('user_id');
+            $table->foreignId('hrana');
+            $table->foreignId('user');
             $table->dateTime('datum');
             $table->float('dostava_cena');
             $table->timestamps();

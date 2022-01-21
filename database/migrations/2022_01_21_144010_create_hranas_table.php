@@ -17,7 +17,7 @@ class CreateHranasTable extends Migration
             $table->id();
             $table->string('naziv');
             $table->string('opis');
-            $table->foreignId('restoran_id');
+            $table->foreignId('restoran');
             $table->timestamps();
         });
     }

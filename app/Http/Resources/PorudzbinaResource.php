@@ -17,8 +17,8 @@ class PorudzbinaResource extends JsonResource
     {
         return[
             'id'=>$this->resource->id,
-            'hrana_id'=>new HranaResource($this->resource->hrana_id),
-            'restoran_id'=>new RestoranResource($this->resource->restoran_id),
+            'hrana'=>new HranaResource($this->resource->hrana),
+            'restoran'=>new RestoranResource($this->resource->restoran),
             'datum'=>$this->resource->datum,
             'dostava_cena'=>$this->resource->dostava_cena,
         ];

@@ -17,8 +17,8 @@ class PorudzbinaFactory extends Factory
     {
 
         return [
-            'hrana_id' => Hrana::factory(),
-            'user_id' => User::factory(),
+            'hrana' => Hrana::factory(),
+            'user' => User::factory(),
             'datum' => $this->faker->date(),
             'dostava_cena' => $this->faker->randomFloat()
         ];
