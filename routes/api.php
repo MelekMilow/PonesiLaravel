@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\HranaController;
 use App\Http\Controllers\PorudzbinaController;
 use App\Http\Controllers\RestoranController;
@@ -21,6 +22,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/register',[AuthController::class,'register']);
+Route::post('/login',[AuthController::class,'login']);
 
 Route::group(['middleware'=>['auth:sanctum']],function(){
 

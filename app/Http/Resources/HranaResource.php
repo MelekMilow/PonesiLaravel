@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Restoran;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class HranaResource extends JsonResource
@@ -19,7 +20,7 @@ class HranaResource extends JsonResource
             'id'=>$this->resource->id,
             'naziv'=>$this->resource->naziv,
             'opis'=>$this->resource->opis,
-            'restoran'=>new RestoranResource($this->resource->restoran),
+            'restoran'=>new RestoranResource(Restoran::find($this->resource->restoran)),
             'cena'=>$this->resource->cena,
         ];
     }

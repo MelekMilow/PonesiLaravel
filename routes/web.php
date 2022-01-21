@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return "Ponesi.com";
+    return view('welcome');
 });
 
 Route::resource('user',UserController::class)->only(['index','show']);

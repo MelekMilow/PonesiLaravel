@@ -6,6 +6,7 @@ use App\Http\Resources\PorudzbinaCollection;
 use App\Http\Resources\PorudzbinaResource;
 use App\Models\Porudzbina;
 use App\Models\User;
+use App\Rules\PostojiHrana;
 use App\Rules\PostojiUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -44,8 +45,8 @@ class PorudzbinaController extends Controller
         $validator=Validator::make($request->all(),[
             'hrana'=>['required','integer',new PostojiHrana()],
             'user'=>['required','integer',new PostojiUser()],
-            'opis'=>'required|string|max:255',
-            'cena'=>'required|float',
+            'datum'=>'required',
+            'dostava_cena'=>'required',
 
         ]);
         if($validator->fails()){
@@ -55,8 +56,8 @@ class PorudzbinaController extends Controller
         $porudzbina = Porudzbina::create([
             'hrana'=>$request->hrana,
             'user'=>$request->user,
-            'opis'=>$request->opis,
-            'cena'=>$request->cena,
+            'datum'=>$request->datum,
+            'dostava_cena'=>$request->dostava_cena,
         ]);
         return response()->json(['Uspesno sacuvana porudzbina',new PorudzbinaResource($porudzbina)]);
     }
@@ -96,8 +97,8 @@ class PorudzbinaController extends Controller
         $validator=Validator::make($request->all(),[
             'hrana'=>['required','integer',new PostojiHrana()],
             'user'=>['required','integer',new PostojiUser()],
-            'opis'=>'required|string|max:255',
-            'cena'=>'required|float',
+            'datum'=>'required',
+            'dostava_cena'=>'required',
 
         ]);
         if($validator->fails()){
@@ -106,8 +107,8 @@ class PorudzbinaController extends Controller
 
         $porudzbina->hrana = $request->hrana;
         $porudzbina->user = $request->user;
-        $porudzbina->opis = $request->opis;
-        $porudzbina->cena = $request->cena;
+        $porudzbina->datum = $request->datum;
+        $porudzbina->dostava_cena = $request->dostava_cena;
 
         $porudzbina->save();
 

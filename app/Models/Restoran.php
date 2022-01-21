@@ -10,7 +10,7 @@ class Restoran extends Model
     use HasFactory;
     protected $guarded=[''];
 
-    public function hrana(){
+    public function restoran(){
         return $this->hasMany(Hrana::class);
     }
 }

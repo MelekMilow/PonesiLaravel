@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -16,7 +17,7 @@ class AuthController extends Controller
         $validator = Validator::make($request->all(),[
             'ime'=>'required|string|max:255',
             'prezime'=>'required|string|max:255',
-            'username'=>'required|string|unique|max:50',
+            'username'=>'required|string|unique:users|max:50',
             'password'=>'required|string|min:5',
             'adresa'=>'required|string',
         ]);

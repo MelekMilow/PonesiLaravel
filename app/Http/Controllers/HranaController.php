@@ -43,7 +43,7 @@ class HranaController extends Controller
         $validator = Validator::make($request->all(),[
             'naziv'=>'required|string|max:255',
             'opis'=>'required|string|max:255',
-            'cena'=>'required|float',
+            'cena'=>'required',
             'restoran'=>['required','integer',new PostojiRestoran()]
         ]);
 
@@ -94,7 +94,7 @@ class HranaController extends Controller
         $validator = Validator::make($request->all(),[
             'naziv'=>'required|string|max:255',
             'opis'=>'required|string|max:255',
-            'cena'=>'required|float',
+            'cena'=>'required',
             'restoran'=>['required','integer',new PostojiRestoran()]
         ]);
 
@@ -104,9 +104,9 @@ class HranaController extends Controller
 
 
         $hrana->naziv = $request->naziv;
-        $hrana->adresa = $request->adresa;
-        $hrana->brojTelefona = $request->brojTelefona;
-        $hrana->radnoVreme = $request->radnoVreme;
+        $hrana->opis = $request->opis;
+        $hrana->cena = $request->cena;
+        $hrana->restoran = $request->restoran;
 
         $hrana->save();
 

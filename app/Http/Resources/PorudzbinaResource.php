@@ -2,6 +2,9 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Hrana;
+use App\Models\Restoran;
+use App\Models\User;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class PorudzbinaResource extends JsonResource
@@ -17,8 +20,8 @@ class PorudzbinaResource extends JsonResource
     {
         return[
             'id'=>$this->resource->id,
-            'hrana'=>new HranaResource($this->resource->hrana),
-            'restoran'=>new RestoranResource($this->resource->restoran),
+            'hrana'=>new HranaResource(Hrana::find($this->resource->hrana)),
+            'user'=>new UserResource(User::find($this->resource->user)),
             'datum'=>$this->resource->datum,
             'dostava_cena'=>$this->resource->dostava_cena,
         ];
