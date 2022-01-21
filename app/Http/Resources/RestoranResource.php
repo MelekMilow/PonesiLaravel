@@ -12,8 +12,15 @@ class RestoranResource extends JsonResource
      * @param  \Illuminate\Http\Request  $request
      * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
      */
+    public static $wrap='Restoran';
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'id'=>$this->resource->id,
+            'naziv'=>$this->resource->naziv,
+            'adresa'=>$this->resource->adresa,
+            'brojTelefona'=>$this->resource->brojTelefona,
+            'radnoVreme'=>$this->resource->radnoVreme,
+        ];
     }
 }
