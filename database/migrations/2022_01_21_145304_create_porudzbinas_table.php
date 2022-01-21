@@ -19,7 +19,6 @@ class CreatePorudzbinasTable extends Migration
             $table->foreignId('user_id');
             $table->dateTime('datum');
             $table->float('dostava_cena');
-            $table->float('ukupno_cena');
             $table->timestamps();
         });
     }

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Restoran;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class HranaFactory extends Factory
@@ -14,7 +15,10 @@ class HranaFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'naziv' => "Hrana ".random_int(1,100),
+            'opis' => $this->faker->sentence(),
+            'cena' => $this->faker->randomFloat(2,10,1000),
+            'restoran_id' =>Restoran::factory()
         ];
     }
 }
